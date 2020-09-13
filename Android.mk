@@ -1,5 +1,4 @@
-ifeq ($(call my-dir),$(call project-path-for,qcom-display))
-
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf-845)
 ifneq ($(TARGET_DISABLE_DISPLAY),true)
 sdm-libs := sdm/libs
 display-hals := include libdebug $(sdm-libs)/utils $(sdm-libs)/core
@@ -10,6 +9,7 @@ ifneq ($(TARGET_IS_HEADLESS), true)
 endif
 
 display-hals += gralloc
+display-hals += commonsys-intf/libdisplayconfig
 
 ifneq ($(TARGET_PROVIDES_LIBLIGHT),true)
     display-hals += liblight
